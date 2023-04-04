@@ -1,0 +1,19 @@
+// Get the button elements from the HTML document
+const onButton = document.getElementById("onButton"); 
+const offButton = document.getElementById("offButton"); 
+// Add event listeners to the button elements
+onButton.addEventListener("click", turnOn); 
+offButton.addEventListener("click", turnOff); 
+// Function to send a POST request to turn geyser ON
+function turnOn() { 
+ fetch("/on", { method: "POST" }) 
+ .then((response) => response.text()) 
+ .then((message) => console.log(message)) 
+ .catch((error) => console.error(error)); 
+} 
+// Function to send a POST request to turn geyser OFF
+function turnOff() { 
+ fetch("/off", { method: "POST" }) 
+ .then((response) => response.text()) 
+ .then((message) => console.log(message)) 
+ .catch((error) => console.error(error)); 
